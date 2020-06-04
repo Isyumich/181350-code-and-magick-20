@@ -11,33 +11,25 @@ userDialog.classList.remove('hidden');
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 // Функция получения случайного числа
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
-}
+var getRandomNumber = function (min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+};
 
-// Создание списка персонажей
-var wizards = [
-  {
-    name: WIZARD_NAMES[Math.round(getRandomNumber(1, 8))] + ' ' + WIZARD_SURNAMES[Math.round(getRandomNumber(1, 8))],
-    coatColor: WIZARD_COAT_COLORS[Math.round(getRandomNumber(1, 8))],
-    eyeColor: WIZARD_EYE_COLORS[Math.round(getRandomNumber(1, 8))]
-  },
-  {
-    name: WIZARD_NAMES[Math.round(getRandomNumber(1, 8))] + ' ' + WIZARD_SURNAMES[Math.round(getRandomNumber(1, 8))],
-    coatColor: WIZARD_COAT_COLORS[Math.round(getRandomNumber(1, 8))],
-    eyeColor: WIZARD_EYE_COLORS[Math.round(getRandomNumber(1, 8))]
-  },
-  {
-    name: WIZARD_NAMES[Math.round(getRandomNumber(1, 8))] + ' ' + WIZARD_SURNAMES[Math.round(getRandomNumber(1, 8))],
-    coatColor: WIZARD_COAT_COLORS[Math.round(getRandomNumber(1, 8))],
-    eyeColor: WIZARD_EYE_COLORS[Math.round(getRandomNumber(1, 8))]
-  },
-  {
-    name: WIZARD_NAMES[Math.round(getRandomNumber(1, 8))] + ' ' + WIZARD_SURNAMES[Math.round(getRandomNumber(1, 8))],
-    coatColor: WIZARD_COAT_COLORS[Math.round(getRandomNumber(1, 8))],
-    eyeColor: WIZARD_EYE_COLORS[Math.round(getRandomNumber(1, 8))]
-  }
-];
+// Функция создания волшебника
+var getWizard = function () {
+  var wizard = {
+    name: WIZARD_NAMES[getRandomNumber(1, 8)] + ' ' + WIZARD_SURNAMES[getRandomNumber(1, 8)],
+    coatColor: WIZARD_COAT_COLORS[getRandomNumber(1, 8)],
+    eyeColor: WIZARD_EYE_COLORS[getRandomNumber(1, 8)]
+  };
+  return wizard;
+};
+
+// Создание массива волшебников
+var wizards = [];
+for (var j = 0; j < 4; j++) {
+  wizards[j] = getWizard();
+}
 
 // Функция рендеринга волшебника
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
