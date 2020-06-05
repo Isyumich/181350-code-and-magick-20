@@ -19,8 +19,8 @@ var getRandomNumber = function (min, max) {
 var getWizard = function () {
   var wizard = {
     name: WIZARD_NAMES[getRandomNumber(1, 8)] + ' ' + WIZARD_SURNAMES[getRandomNumber(1, 8)],
-    coatColor: WIZARD_COAT_COLORS[getRandomNumber(1, 8)],
-    eyeColor: WIZARD_EYE_COLORS[getRandomNumber(1, 8)]
+    coatColor: WIZARD_COAT_COLORS[getRandomNumber(1, 6)],
+    eyeColor: WIZARD_EYE_COLORS[getRandomNumber(1, 5)]
   };
   return wizard;
 };
