@@ -12,15 +12,15 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
 // Функция получения случайного числа
 var getRandomNumber = function (min, max) {
-  return Math.round(Math.random() * (max - min) + min);
+  return Math.floor(min + Math.random() * (max + 1 - min));
 };
 
 // Функция создания волшебника
 var getWizard = function () {
   var wizard = {
-    name: WIZARD_NAMES[getRandomNumber(1, 8)] + ' ' + WIZARD_SURNAMES[getRandomNumber(1, 8)],
-    coatColor: WIZARD_COAT_COLORS[getRandomNumber(1, 6)],
-    eyeColor: WIZARD_EYE_COLORS[getRandomNumber(1, 5)]
+    name: WIZARD_NAMES[getRandomNumber(0, 7)] + ' ' + WIZARD_SURNAMES[getRandomNumber(0, 7)],
+    coatColor: WIZARD_COAT_COLORS[getRandomNumber(0, 5)],
+    eyeColor: WIZARD_EYE_COLORS[getRandomNumber(0, 4)]
   };
   return wizard;
 };
