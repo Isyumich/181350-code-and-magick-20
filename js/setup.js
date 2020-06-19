@@ -60,9 +60,9 @@
   var inputColorWizardEyes = userDialog.querySelector('input[name="eyes-color"]');
   var inputColorFireball = userDialog.querySelector('input[name="fireball-color"]');
 
-  window.colorize(colorWizardCoat, inputColorWizardCoat, WIZARD_COAT_COLORS);
-  window.colorize(colorWizardEyes, inputColorWizardEyes, WIZARD_EYE_COLORS);
-  window.colorize(colorFireball, inputColorFireball, FIREBALL_COLORS);
+  window.colorize.colorize(colorWizardCoat, inputColorWizardCoat, WIZARD_COAT_COLORS);
+  window.colorize.colorize(colorWizardEyes, inputColorWizardEyes, WIZARD_EYE_COLORS);
+  window.colorize.colorize(colorFireball, inputColorFireball, FIREBALL_COLORS);
 })();
 
 

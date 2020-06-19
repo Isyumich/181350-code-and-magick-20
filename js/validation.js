@@ -1,10 +1,10 @@
 'use strict';
 
 (function () {
-  var minNameLength = userNameInput.minLength;
-  var maxNameLength = userNameInput.maxLength;
   var setup = document.querySelector('.setup');
   var userNameInput = setup.querySelector('.setup-user-name');
+  var minNameLength = userNameInput.minLength;
+  var maxNameLength = userNameInput.maxLength;
 
   // Валидация при отправке формы
   userNameInput.addEventListener('invalid', function () {
