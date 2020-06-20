@@ -16,9 +16,9 @@
   // Функция создания волшебника
   var getWizard = function () {
     return {
-      name: window.getRandomArrayElement(WIZARD_NAMES) + ' ' + window.getRandomArrayElement(WIZARD_SURNAMES),
-      coatColor: window.getRandomArrayElement(WIZARD_COAT_COLORS),
-      eyeColor: window.getRandomArrayElement(WIZARD_EYE_COLORS)
+      name: window.util.getRandomArrayElement(WIZARD_NAMES) + ' ' + window.util.getRandomArrayElement(WIZARD_SURNAMES),
+      coatColor: window.util.getRandomArrayElement(WIZARD_COAT_COLORS),
+      eyeColor: window.util.getRandomArrayElement(WIZARD_EYE_COLORS)
     };
   };
 

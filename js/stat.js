@@ -18,21 +18,21 @@
   };
 
   // Функция получения статистики игроков
-  function getPlayersStatistic(ctx, players, times) {
-    var maxTime = window.getMaxElement(times);
+  var getPlayersStatistic = function (ctx, players, times) {
+    var maxTime = window.util.getMaxElement(times);
 
     for (var i = 0; i < times.length; i++) {
-      var blueColor = window.getRandomNumber(0, 100);
+      var blueColor = window.util.getRandomNumber(0, 100);
       ctx.fillStyle = (players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240, ' + blueColor + '%, 50%)');
       var elementHeight = times[i] * MAX_ELEMENT_HEIGHT / maxTime;
       ctx.fillText(players[i], CLOUD_X + 40 + (ELEMENT_WIDTH + ELEMENT_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - 20);
       ctx.fillRect(CLOUD_X + 40 + (ELEMENT_WIDTH + ELEMENT_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - 30, ELEMENT_WIDTH, -elementHeight);
       ctx.fillText(String(Math.round(times[i])), CLOUD_X + 40 + (ELEMENT_WIDTH + ELEMENT_GAP) * i, CLOUD_Y + CLOUD_HEIGHT - elementHeight - 50);
     }
-  }
+  };
 
   // Функция отрисовки статистики игры
-  window.renderStatistics = function (ctx, players, times) {
+  var renderStatistics = function (ctx, players, times) {
     renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7)');
     renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
 
@@ -43,6 +43,10 @@
     ctx.fillText('Список результатов:', CLOUD_X + 20, CLOUD_Y + 40);
 
     getPlayersStatistic(ctx, players, times);
+  };
+
+  window.stat = {
+    renderStatistics: renderStatistics
   };
 })();
 
