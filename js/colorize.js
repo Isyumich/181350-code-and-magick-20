@@ -3,7 +3,7 @@
 (function () {
   var colorize = function (element, inputElement, colorArray) {
     element.addEventListener('click', function () {
-      var randomElementColor = window.getRandomArrayElement(colorArray);
+      var randomElementColor = window.util.getRandomArrayElement(colorArray);
       if (element.tagName.toLowerCase() === 'div') {
         element.style.backgroundColor = randomElementColor;
       } else {
