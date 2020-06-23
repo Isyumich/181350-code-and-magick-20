@@ -4,26 +4,31 @@
   var URL_SAVE = 'https://javascript.pages.academy/code-and-magick';
   var URL_LOAD = 'https://javascript.pages.academy/code-and-magick/data';
 
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'json';
+
+  // Функция отправки данных
   var save = function (data, onLoad, onError) {
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
       onLoad(xhr.response);
+    });
+
+    xhr.addEventListener('error', function () {
+      onError('Произошла ошибка соединения');
     });
 
     xhr.open('POST', URL_SAVE);
     xhr.send(data);
   };
 
+  // Функция загрузки данных
   var StatusCode = {
     OK: 200
   };
   var TIMEOUT_IN_MS = 10000;
 
   var load = function (onLoad, onError) {
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
       if (xhr.status === StatusCode.OK) {
